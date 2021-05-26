@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireBall
+  m_Name: SmallFireBall
   m_Shader: {fileID: -6465566751694194690, guid: ce8233fd16f6eab499ff791d82ef70ea,
     type: 3}
   m_ShaderKeywords: 
@@ -30,18 +30,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_7A3D86AB: 0.299
-    - _ColorStep1: 0.51
+    - _ColorStep1: 0.599
     - _ColorStep2: 0.218
     - _ColorStep3: 0.089
     - _MixingScale: 0.184
-    - _PixelCount: 12
+    - _PixelCount: 6
     - _Scale: 10
     - _TextureScale: 10
     m_Colors:
-    - Color2: {r: 0.754717, g: 0.39456025, b: 0, a: 0}
-    - Color3: {r: 12.268817, g: 0.4811301, b: 0, a: 0}
+    - Color2: {r: 1, g: 0.6693672, b: 0, a: 0}
+    - Color3: {r: 1, g: 0.44866973, b: 0, a: 0}
     - _Color: {r: 0.9811321, g: 0.5037535, b: 0.02313991, a: 0}
-    - _Color1: {r: 21.303246, g: 18.35503, b: 0, a: 0}
+    - _Color1: {r: 24.685078, g: 21.454046, b: 0, a: 0}
     - _FireDirection: {r: 0, g: -0.3, b: 0, a: 0}
     - _FireDirection1: {r: 0.1, g: -0.5, b: 0, a: 0}
     - _FireDirection2: {r: -0.1, g: -0.8, b: 0, a: 0}
