@@ -18,7 +18,6 @@ public class IdleBehavior : StateMachineBehaviour
     {
         if (timer <= 0)
         {
-            
             animator.SetTrigger("StartJump");
         }
         else

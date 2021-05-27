@@ -17,10 +17,14 @@ public class FireGroundMove : MonoBehaviour
     }
 
     private void Start()
-    {
+    {   
         _rb = GetComponent<Rigidbody2D>();
-        _rb.velocity = new Vector2(-speed, _rb.velocity.y);
         Destroy(gameObject,lifeTime);
+    }
+
+    private void Update()
+    {
+        _rb.velocity = new Vector2(-speed, _rb.velocity.y);
     }
 
     public void ChangeDirection()
