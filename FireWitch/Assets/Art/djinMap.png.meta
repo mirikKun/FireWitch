@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: d7f883734801a5c4da66aaa11df1e0e5
+guid: 0759cc77f93bb3e4ea4ff3376bf92d56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9209479668324958208
+      213: -9046904503840281246
     second: Idle1
   - first:
-      213: -661355702085498197
+      213: -6031846693712999760
     second: Idle2
   - first:
-      213: 7515698825314227898
-    second: Run1
-  - first:
-      213: 2849586316443768634
-    second: Run2
-  - first:
-      213: 2607280361099708829
-    second: Jump
+      213: 5999414661665742002
+    second: Attack
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -60,7 +54,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,8 +125,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0000f4b190b513080800000000000000
-      internalID: -9209479668324958208
+      spriteID: 26de7bb4940f27280800000000000000
+      internalID: -9046904503840281246
       vertices: []
       indices: 
       edges: []
@@ -150,10 +144,10 @@ TextureImporter:
       name: Idle2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baac3033e7462d6f0800000000000000
-      internalID: -661355702085498197
+      spriteID: 0ba4f91e3639a4ca0800000000000000
+      internalID: -6031846693712999760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1
+      name: Attack
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,50 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab6dca103402d4860800000000000000
-      internalID: 7515698825314227898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run2
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a37d17438a3cb8720800000000000000
-      internalID: 2849586316443768634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d994339acabee2420800000000000000
-      internalID: 2607280361099708829
+      spriteID: 2bc5bd839d3324350800000000000000
+      internalID: 5999414661665742002
       vertices: []
       indices: 
       edges: []

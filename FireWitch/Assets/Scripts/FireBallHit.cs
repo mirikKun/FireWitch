@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FireBallHit : MonoBehaviour
 {
-    [SerializeField] GameObject boomParticle;
+    [SerializeField] private GameObject boomParticle;
     // Start is called before the first frame update
     void Start()
     {

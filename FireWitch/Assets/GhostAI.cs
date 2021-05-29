@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
@@ -68,9 +69,14 @@ public class GhostAI : MonoBehaviour
         if ((force.x >= 0.01f && ghostGFX.localScale.x > 0) ||
             (force.x <= -0.01f &&ghostGFX.localScale.x < 0))
         {
-            var localScale = ghostGFX.localScale;
-            localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
-            ghostGFX.localScale = localScale;
+            Flip();
         }
+    }
+
+    private void Flip()
+    {
+        var localScale = ghostGFX.localScale;
+        localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
+        ghostGFX.localScale = localScale;
     }
 }
