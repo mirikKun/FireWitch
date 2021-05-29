@@ -10,91 +10,103 @@ public class DjinAI : MonoBehaviour
     [SerializeField] private float positionOfPatrol = 2;
     [SerializeField] private Transform point;
     [SerializeField] private float chaseDistance = 5;
-    [SerializeField] private GameObject projectile ;
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private float reloadTime = 1;
     private bool _movingRight;
- 
+    private float _currentTimer;
+    private float _scaleX;
 
     private Transform _player;
     private Transform _transform;
 
-    private enum State {Chill, Angry, GoBack};
+    private enum State
+    {
+        Patrols,
+        Shoots,
+        Recharges
+    };
 
-    
+
     private State _state;
 
     private void Start()
     {
-        _state = State.GoBack;
+        _state = State.Patrols;
         _transform = transform;
         _directionalSpeed = -speed;
         _player = FindObjectOfType<PlayerMovement>().transform;
-        
+        _scaleX = _transform.localScale.x;
     }
 
     private void Update()
     {
-        
-        if (Vector2.Distance(transform.position, point.position) < positionOfPatrol && _state==State.Angry)
+        if (Vector2.Distance(transform.position, _player.position) < chaseDistance && _state != State.Recharges)
         {
-            _state = State.Chill;
+            _state = State.Shoots;
         }
 
-        if (Vector2.Distance(transform.position, _player.position) < chaseDistance)
-        {
-            _state = State.Angry;
-        }
-
-        if (Vector2.Distance(transform.position, _player.position) > chaseDistance)
-        {
-            _state = State.GoBack;
-        }
-
-        
         switch (_state)
         {
-            case State.Chill:
+            case State.Patrols:
                 Chill();
                 break;
-            case State.Angry:
-                Angry();
+            case State.Shoots:
+                Shooting();
                 break;
-            case State.GoBack:
-                GoBack();
+            case State.Recharges:
+                Reload();
                 break;
         }
     }
 
-    private void Flip()
+    private void Flip(bool moveRight)
     {
         var localScale = _transform.localScale;
-        localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
+        if (moveRight)
+        {
+            localScale = new Vector3(-_scaleX, localScale.y, localScale.z);
+        }
+        else
+        {
+            localScale = new Vector3(_scaleX, localScale.y, localScale.z);
+        }
+
         _transform.localScale = localScale;
     }
+
     private void Chill()
     {
-        if (_movingRight&& transform.position.x > point.position.x + positionOfPatrol)
+        if (_movingRight && transform.position.x > point.position.x + positionOfPatrol)
         {
             _directionalSpeed = -speed;
             _movingRight = false;
-            Flip();
+            Flip(_movingRight);
         }
         else if (!_movingRight && transform.position.x < point.position.x - positionOfPatrol)
         {
             _directionalSpeed = speed;
             _movingRight = true;
-            Flip();
+            Flip(_movingRight);
         }
 
-        _transform.position += _directionalSpeed * Time.deltaTime*Vector3.right;
+        _transform.position += _directionalSpeed * Time.deltaTime * Vector3.right;
     }
 
-    private void Angry()
+    private void Shooting()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _player.position, speed * Time.deltaTime);
+        Flip(_transform.position.x < _player.position.x);
+        Instantiate(projectile, _transform.position, Quaternion.identity);
+        _currentTimer = Time.time + reloadTime;
+        _state = State.Recharges;
     }
 
-    private void GoBack()
+    private void Reload()
     {
-        transform.position = Vector2.MoveTowards(transform.position, point.position, speed * Time.deltaTime);
+        if (_currentTimer > Time.time)
+        {
+            return;
+        }
+
+        _state = State.Patrols;
     }
 }

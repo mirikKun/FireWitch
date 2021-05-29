@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GhostAI : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+     
     [SerializeField] private float speed = 50;
     [SerializeField] private float nextWayPointDistance = 3f;
     private Path _path;
@@ -15,7 +15,7 @@ public class GhostAI : MonoBehaviour
     [SerializeField] private Transform ghostGFX;
 
     private Seeker _seeker;
-
+    private Transform _target;
     private Rigidbody2D _rb;
 
     // Start is called before the first frame update
@@ -23,7 +23,9 @@ public class GhostAI : MonoBehaviour
     {
         _seeker = GetComponent<Seeker>();
         _rb = GetComponent<Rigidbody2D>();
-
+        _target = FindObjectOfType<PlayerMovement>().transform;
+        if (!ghostGFX)
+            ghostGFX = transform;
         StartCoroutine(FindWay());
     }
 
@@ -32,7 +34,7 @@ public class GhostAI : MonoBehaviour
         while (true)
         {
             if (_seeker.IsDone())
-                _seeker.StartPath(_rb.position, target.position, OnPathCompleted);
+                _seeker.StartPath(_rb.position, _target.position, OnPathCompleted);
             yield return new WaitForSeconds(0.5f);
         }
     }
