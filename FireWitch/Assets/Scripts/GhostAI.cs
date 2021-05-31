@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class GhostAI : MonoBehaviour
 {
-     
     [SerializeField] private float speed = 50;
     [SerializeField] private float nextWayPointDistance = 3f;
     private Path _path;
@@ -57,10 +56,10 @@ public class GhostAI : MonoBehaviour
         {
             return;
         }
-      
+
 
         Vector2 direction = ((Vector2) (_path.vectorPath[_currentWayPoint]) - _rb.position).normalized;
-        Vector2 force =   speed * Time.deltaTime*direction;
+        Vector2 force = speed * Time.deltaTime * direction;
         _rb.AddForce(force);
         float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWayPoint]);
         if (distance < nextWayPointDistance)
@@ -69,7 +68,7 @@ public class GhostAI : MonoBehaviour
         }
 
         if ((force.x >= 0.01f && ghostGFX.localScale.x > 0) ||
-            (force.x <= -0.01f &&ghostGFX.localScale.x < 0))
+            (force.x <= -0.01f && ghostGFX.localScale.x < 0))
         {
             Flip();
         }

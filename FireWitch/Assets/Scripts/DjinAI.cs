@@ -18,7 +18,7 @@ public class DjinAI : MonoBehaviour
 
     private Transform _player;
     private Transform _transform;
-
+    private Transform _viewTransform;
     private enum State
     {
         Patrols,
@@ -33,9 +33,10 @@ public class DjinAI : MonoBehaviour
     {
         _state = State.Patrols;
         _transform = transform;
+        _viewTransform = _transform.GetComponentInChildren<Animator>().transform;
         _directionalSpeed = -speed;
         _player = FindObjectOfType<PlayerMovement>().transform;
-        _scaleX = _transform.localScale.x;
+        _scaleX = _viewTransform.localScale.x;
     }
 
     private void Update()
@@ -61,7 +62,7 @@ public class DjinAI : MonoBehaviour
 
     private void Flip(bool moveRight)
     {
-        var localScale = _transform.localScale;
+        var localScale = _viewTransform.localScale;
         if (moveRight)
         {
             localScale = new Vector3(-_scaleX, localScale.y, localScale.z);
@@ -71,7 +72,7 @@ public class DjinAI : MonoBehaviour
             localScale = new Vector3(_scaleX, localScale.y, localScale.z);
         }
 
-        _transform.localScale = localScale;
+        _viewTransform.localScale = localScale;
     }
 
     private void Chill()

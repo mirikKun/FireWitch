@@ -12,6 +12,10 @@ public class RayShoot : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private GameObject startFlash;
     [SerializeField] private GameObject hitFlash;
+    
+    [SerializeField] private float damage=2;
+    [SerializeField] private float damageRate=0.2f;
+    private float _lastDamageApply;
     private Quaternion _rotation;
     private Transform _transform;
     private bool _faceToRight;
@@ -78,7 +82,14 @@ public class RayShoot : MonoBehaviour
         }
         if (hit)
         {
+            Debug.Log("rarararar");
             lineRenderer.SetPosition(1, hit.point);
+            if (_lastDamageApply < Time.time)
+            {
+                hit.transform.GetComponent<HealthController>()?.GetDamage(damage);
+                _lastDamageApply = Time.time + damageRate;
+            }
+            
         }
 
         _hitFlashTransform.position = lineRenderer.GetPosition(1);

@@ -159,7 +159,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -4821,13 +4821,13 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!58 &1325889176
 CircleCollider2D:
@@ -4844,7 +4844,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.31
 --- !u!114 &-4165389018940826807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4857,9 +4857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a16ffa01eb46f340877028120d987b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomParticle: {fileID: 8193799549690959874, guid: 983792d7f72b92f4881deaddc90b5618,
+  boomParticle: {fileID: 8193799549690959874, guid: 2127c0755067bdf4c97ae8499bd8877d,
     type: 3}
-  secondsToDestroy: 4
+  secondsToDestroy: 8
+  damage: 5
 --- !u!114 &8994323841519445688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4872,8 +4873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21c3f52e99f5284c97d3fe14b240241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
-  nextWayPointDistance: 3
+  speed: 400
+  nextWayPointDistance: 0.3
   ghostGFX: {fileID: 0}
 --- !u!114 &8392426546744220773
 MonoBehaviour:

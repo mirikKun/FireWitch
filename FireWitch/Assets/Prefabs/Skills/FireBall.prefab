@@ -4857,3 +4857,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boomParticle: {fileID: 8193799549690959874, guid: 983792d7f72b92f4881deaddc90b5618,
     type: 3}
+  secondsToDestroy: 4
+  damage: 10

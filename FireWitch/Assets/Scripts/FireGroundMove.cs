@@ -7,6 +7,7 @@ public class FireGroundMove : MonoBehaviour
 {
     [SerializeField] private float speed = 6;
     [SerializeField] private float lifeTime = 3;
+
     private Rigidbody2D _rb;
     private Vector3 _localScale;
 
@@ -34,4 +35,6 @@ public class FireGroundMove : MonoBehaviour
         _transform.localScale = _localScale;
         speed *= -1;
     }
+
+ 
 }
