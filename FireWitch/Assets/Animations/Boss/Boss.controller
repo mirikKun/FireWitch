@@ -359,4 +359,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0.6
-  jumpForce: 8
+  jumpForce: 16
