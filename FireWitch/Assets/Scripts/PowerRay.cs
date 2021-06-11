@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RayShoot : MonoBehaviour
+public class PowerRay : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private LineRenderer lineRenderer;
@@ -82,7 +82,6 @@ public class RayShoot : MonoBehaviour
         }
         if (hit)
         {
-            Debug.Log("rarararar");
             lineRenderer.SetPosition(1, hit.point);
             if (_lastDamageApply < Time.time)
             {

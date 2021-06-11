@@ -5,32 +5,32 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
-    [SerializeField] private Image healthBar;
-    [SerializeField] private GameObject rootObject;
+    [SerializeField] protected float maxHealth = 100;
+    [SerializeField] protected Image healthBar;
+    [SerializeField] protected GameObject rootObject;
 
-    private float _health;
+    private float _currentHealth;
     
-    void Start()
+    private void Start()
     {
-        _health = maxHealth;
+        _currentHealth = maxHealth;
+        
     }
 
 
-    public void GetDamage(float damage)
+    public virtual void GetDamage(float damage)
     {
-        _health -= damage;
+        _currentHealth -= damage;
         if (healthBar)
-            healthBar.fillAmount = _health / maxHealth;
-        if (_health <= 0)
+            healthBar.fillAmount = _currentHealth / maxHealth;
+        if (_currentHealth <= 0)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-        
         Destroy(rootObject);
     }
 }
