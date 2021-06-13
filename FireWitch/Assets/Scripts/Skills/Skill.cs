@@ -6,7 +6,8 @@ public abstract class Skill : MonoBehaviour
 {
     [SerializeField] protected float reloadTime;
     [SerializeField] protected bool available = true;
-    [SerializeField] protected float manaCost;
+    [SerializeField] protected int manaCost;
+    [SerializeField] protected ManaController manaController;
     [SerializeField] protected GameObject skillObject;
 
     public abstract void ActivateSkill();

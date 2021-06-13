@@ -28,7 +28,8 @@ public class FireDissolver : Skill
     {
         if(!available)
             return;
-
+        if(!manaController.TrySpendMana(manaCost))
+            return;
         _isConverting = true;
         StartCoroutine(_dissolved ? Appearance() : Dissolving());
     }

@@ -9,12 +9,10 @@ public class HealthWithShield : HealthController
     [SerializeField] private float maxShieldStrength = 3;
     [SerializeField] private Image shieldBar;
     [SerializeField] private GameObject fireShield;
-    [SerializeField] private FireShield shieldController;
-    
 
     private float _shieldStrength;
     private bool _shieldStay ;
-    
+    public event Action OnShieldBreak;
     
     public override void GetDamage(float damage)
     {
@@ -30,6 +28,9 @@ public class HealthWithShield : HealthController
         fireShield.SetActive(true);
         _shieldStay = true;
     }
+
+ 
+
     private void ShieldHit()
     {
         _shieldStrength--;
@@ -40,7 +41,7 @@ public class HealthWithShield : HealthController
 
         if (_shieldStrength <= 0)
         {
-            shieldController.ShieldBreak();
+            OnShieldBreak?.Invoke();
             fireShield.SetActive(false);
             _shieldStay = false;
         }

@@ -31,16 +31,27 @@ public class FireShield : Skill
     {
         if(!available)
             return;
+        if(!manaController.TrySpendMana(manaCost))
+            return;
         healthShield.SetupShield();
         _fireShieldActive = !_fireShieldActive;
         skillObject.SetActive(_fireShieldActive);
     }
 
-    public void ShieldBreak()
+    private void ShieldBreak()
     {
         StartCoroutine(ShieldReload());
     }
 
+    private void OnEnable()
+    {
+        healthShield.OnShieldBreak += ShieldBreak;
+    }
+
+    private void OnDisable()
+    {
+        healthShield.OnShieldBreak -= ShieldBreak;
+    }
     private IEnumerator ShieldReload()
     {
         available = false;

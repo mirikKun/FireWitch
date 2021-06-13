@@ -26,6 +26,8 @@ public class FireGround : Skill
     {
         if(!available)
             return;
+        if(!manaController.TrySpendMana(manaCost))
+            return;
         Instantiate(fireGround, transform.position, quaternion.identity);
         FireGroundMove fireGroundMove=Instantiate(fireGround, transform.position, quaternion.identity);
         fireGroundMove.ChangeDirection();
